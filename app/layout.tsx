@@ -36,8 +36,10 @@ export default function Layout({ children }: LayoutProps<"/">) {
 				`,
 					}}
 				/>
+
+				<link rel="icon" href="/favicon.ico" />
 			</head>
-			<body className="flex flex-col min-h-screen">
+			<body className="antialiased flex flex-col min-h-screen relative">
 				<Provider>{children}</Provider>
 			</body>
 		</html>

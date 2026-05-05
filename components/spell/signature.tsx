@@ -1,7 +1,7 @@
 "use client"
 import { useEffect, useId, useState } from "react"
 import { motion } from "motion/react"
-import opentype from "opentype.js"
+import * as opentype from "opentype.js"
 
 interface SignatureProps {
 	text?: string
@@ -26,7 +26,7 @@ export function Signature({
 }: SignatureProps) {
 	const [paths, setPaths] = useState<string[]>([])
 	const [width, setWidth] = useState<number>(300)
-	const height = 100
+	const height = 200
 	const horizontalPadding = fontSize * 0.1
 	const topMargin = Math.max(5, (height - fontSize) / 2)
 	const baseline = Math.min(height - 5, topMargin + fontSize)
@@ -45,7 +45,14 @@ export function Signature({
 
 				for (const path of fontPaths) {
 					try {
-						font = await opentype.load(path)
+						// Fetch the font file as an ArrayBuffer
+						const response = await fetch(path)
+						if (!response.ok) {
+							throw new Error(`HTTP ${response.status}`)
+						}
+						const buffer = await response.arrayBuffer()
+						// Parse the font from the buffer (new API)
+						font = opentype.parse(buffer)
 						break
 					} catch {
 						// Try next path
