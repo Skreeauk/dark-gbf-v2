@@ -7,6 +7,22 @@ import { Canvas, useFrame, useThree } from "@react-three/fiber"
 import React, { useMemo, useRef } from "react"
 import * as THREE from "three"
 
+// Suppress THREE.Clock deprecation warning that originates inside @react-three/fiber internals.
+// R3F creates a Clock instance internally; until R3F migrates to THREE.Timer this patch
+// silences the console noise without affecting behaviour.
+if (typeof window !== "undefined") {
+	const _warn = console.warn.bind(console)
+	console.warn = (...args: unknown[]) => {
+		if (
+			typeof args[0] === "string" &&
+			args[0].includes("THREE.Clock") &&
+			args[0].includes("deprecated")
+		)
+			return
+		_warn(...args)
+	}
+}
+
 export const CanvasRevealEffect = ({
 	animationSpeed = 0.4,
 	opacities = [0.3, 0.3, 0.3, 0.5, 0.5, 0.5, 0.8, 0.8, 0.8, 1],
@@ -169,15 +185,16 @@ const ShaderMaterial = ({
 }) => {
 	const { size } = useThree()
 	const ref = useRef<THREE.Mesh>(null)
-	let lastFrameTime = 0
+	const lastFrameTime = useRef(0)
+	const startTime = useRef(performance.now())
 
-	useFrame(({ clock }) => {
+	useFrame(() => {
 		if (!ref.current) return
-		const timestamp = clock.getElapsedTime()
-		if (timestamp - lastFrameTime < 1 / maxFps) {
+		const timestamp = (performance.now() - startTime.current) / 1000
+		if (timestamp - lastFrameTime.current < 1 / maxFps) {
 			return
 		}
-		lastFrameTime = timestamp
+		lastFrameTime.current = timestamp
 
 		const material: any = ref.current.material
 		const timeLocation = material.uniforms.u_time
@@ -224,7 +241,7 @@ const ShaderMaterial = ({
 		preparedUniforms["u_time"] = { value: 0, type: "1f" }
 		preparedUniforms["u_resolution"] = {
 			value: new THREE.Vector2(size.width * 2, size.height * 2),
-		} // Initialize u_resolution
+		}
 		return preparedUniforms
 	}
 
@@ -255,6 +272,14 @@ const ShaderMaterial = ({
 		return materialObject
 	}, [size.width, size.height, source])
 
+	// Dispose GPU resources when the material changes or the component unmounts
+	// to prevent WebGL context exhaustion ("THREE.WebGLRenderer: Context Lost").
+	React.useEffect(() => {
+		return () => {
+			material.dispose()
+		}
+	}, [material])
+
 	return (
 		<mesh ref={ref as any}>
 			<planeGeometry args={[2, 2]} />
@@ -263,10 +288,28 @@ const ShaderMaterial = ({
 	)
 }
 
+// Separate inner component so we can access the R3F gl context via useThree
+// and dispose it in a useEffect cleanup — the only reliable way to free the
+// WebGL context on unmount and avoid "THREE.WebGLRenderer: Context Lost".
+const ShaderCanvasInner: React.FC<ShaderProps> = ({ source, uniforms, maxFps }) => {
+	const { gl } = useThree()
+
+	React.useEffect(() => {
+		return () => {
+			gl.dispose()
+		}
+	}, [gl])
+
+	return <ShaderMaterial source={source} uniforms={uniforms} maxFps={maxFps} />
+}
+
 const Shader: React.FC<ShaderProps> = ({ source, uniforms, maxFps = 60 }) => {
 	return (
-		<Canvas className="absolute inset-0  h-full w-full">
-			<ShaderMaterial source={source} uniforms={uniforms} maxFps={maxFps} />
+		<Canvas
+			className="absolute inset-0 h-full w-full"
+			gl={{ powerPreference: "high-performance", antialias: false }}
+		>
+			<ShaderCanvasInner source={source} uniforms={uniforms} maxFps={maxFps} />
 		</Canvas>
 	)
 }

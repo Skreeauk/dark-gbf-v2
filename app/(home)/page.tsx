@@ -1,18 +1,15 @@
 import Link from "next/link"
 import { FontToggle } from "@/components/FontToggle"
 
+import { BackgroundBeamsWithCollision } from "@/components/aceternity/background-beams-with-collision"
+import { CanvasCard } from "@/components/aceternity/CanvasCard"
+
 export default function HomePage() {
 	return (
-		<div className="flex flex-col justify-center text-center flex-1">
-			<h1 className="text-2xl font-bold mb-4">Hello World</h1>
-			<p>
-				You can open{" "}
-				<Link href="/docs/magna" className="font-medium underline">
-					/docs
-				</Link>{" "}
-				and see the documentation.
-			</p>
-			<FontToggle />
-		</div>
+		<BackgroundBeamsWithCollision className="flex-1">
+			<div>
+				<CanvasCard />
+			</div>
+		</BackgroundBeamsWithCollision>
 	)
 }

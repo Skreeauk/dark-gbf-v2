@@ -11,6 +11,15 @@ export default function Layout({ children }: LayoutProps<"/docs">) {
 				footer: <FontToggle />,
 				banner: <div>Hello World</div>,
 			}}
+			links={[
+				{
+					type: "icon",
+					label: "UwU Toggle", // `aria-label`
+					icon: <FontToggle />,
+					text: "UwU Toggle",
+					url: "",
+				},
+			]}
 			{...baseOptions()}
 		>
 			{children}
