@@ -9,6 +9,17 @@ const config = {
 	images: {
 		unoptimized: true,
 	},
+	experimental: {
+		optimizePackageImports: [
+			"lucide-react",
+			"motion",
+			"motion/react",
+			"three",
+			"fumadocs-core",
+			"fumadocs-mdx",
+			"fumadocs-ui",
+		],
+	},
 }
 
 export default withMDX(config)

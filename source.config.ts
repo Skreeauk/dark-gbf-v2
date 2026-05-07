@@ -6,18 +6,18 @@ import { remarkSteps } from "fumadocs-core/mdx-plugins/remark-steps"
 // You can customize Zod schemas for frontmatter and `meta.json` here
 // see https://fumadocs.dev/docs/mdx/collections
 export const docs = defineDocs({
-	dir: "content/docs",
-	docs: {
-		schema: pageSchema,
-	},
-	meta: {
-		schema: metaSchema,
-	},
+    dir: "content/docs",
+    docs: {
+        schema: pageSchema,
+    },
+    meta: {
+        schema: metaSchema,
+    },
 })
 
 export default defineConfig({
-	mdxOptions: {
-		// MDX options
-		remarkPlugins: [remarkSteps],
-	},
+    mdxOptions: {
+        // MDX options
+        remarkPlugins: [remarkSteps],
+    },
 })

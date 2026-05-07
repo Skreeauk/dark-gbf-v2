@@ -7,41 +7,32 @@ import "./global.css"
 import { cn } from "@/lib/utils"
 
 const ZenKakuGothicNew = Zen_Kaku_Gothic_New({
-	weight: ["500", "700"],
-	subsets: ["latin"],
-	variable: "--font-zen-kaku-gothic",
-	display: "swap",
+    weight: ["500", "700"],
+    subsets: ["latin"],
+    variable: "--font-zen-kaku-gothic",
+    display: "swap",
 })
 
 const Yuruka = localFont({
-	src: "/FOT-YurukaStd-UB.otf",
-	variable: "--font-yuruka",
-	display: "swap",
+    src: "/FOT-YurukaStd-UB.otf",
+    variable: "--font-yuruka",
+    display: "swap",
 })
 
 export default function Layout({ children }: LayoutProps<"/">) {
-	return (
-		<html
-			lang="en"
-			data-font="zen-kaku"
-			className={cn(ZenKakuGothicNew.variable, Yuruka.variable)}
-			suppressHydrationWarning
-		>
-			<head>
-				<script
-					dangerouslySetInnerHTML={{
-						__html: `
-				const uwu = localStorage.getItem('uwu');
-				if (uwu) document.documentElement.setAttribute('data-font', uwu);
-				`,
-					}}
-				/>
-
-				<link rel="icon" href="/favicon.ico" />
-			</head>
-			<body className="antialiased flex flex-col min-h-screen relative">
-				<Provider>{children}</Provider>
-			</body>
-		</html>
-	)
+    return (
+        <html
+            lang="en"
+            data-font="zen-kaku"
+            className={cn(ZenKakuGothicNew.variable, Yuruka.variable)}
+            suppressHydrationWarning
+        >
+            <head>
+                <link rel="icon" href="/favicon.ico" />
+            </head>
+            <body className="relative flex min-h-screen flex-col antialiased">
+                <Provider>{children}</Provider>
+            </body>
+        </html>
+    )
 }

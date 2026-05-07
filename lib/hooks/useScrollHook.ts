@@ -7,61 +7,61 @@ const safeDocument = typeof document !== "undefined" ? document : {}
  * const [blockScroll, allowScroll] = useScrollHook();
  */
 export default function useScrollHook(): [() => void, () => void] {
-	const scrollBlocked = useRef<boolean>(false)
-	const { body } = safeDocument as Document
-	const html = (safeDocument as Document).documentElement
+    const scrollBlocked = useRef<boolean>(false)
+    const { body } = safeDocument as Document
+    const html = (safeDocument as Document).documentElement
 
-	const blockScroll = () => {
-		if (!body || !body.style || scrollBlocked.current) return
+    const blockScroll = () => {
+        if (!body || !body.style || scrollBlocked.current) return
 
-		const scrollBarWidth = window.innerWidth - (html?.clientWidth || 0)
-		const bodyPaddingRight =
-			parseInt(
-				window.getComputedStyle(body).getPropertyValue("padding-right")
-			) || 0
+        const scrollBarWidth = window.innerWidth - (html?.clientWidth || 0)
+        const bodyPaddingRight =
+            parseInt(
+                window.getComputedStyle(body).getPropertyValue("padding-right")
+            ) || 0
 
-		/**
-		 * 1. Fixes a bug in iOS and desktop Safari whereby setting
-		 *    `overflow: hidden` on the html/body does not prevent scrolling.
-		 * 2. Fixes a bug in desktop Safari where `overflowY` does not prevent
-		 *    scroll if an `overflow-x` style is also applied to the body.
-		 */
-		if (html) {
-			html.style.position = "relative" /* [1] */
-			html.style.overflow = "hidden" /* [2] */
-		}
+        /**
+         * 1. Fixes a bug in iOS and desktop Safari whereby setting
+         *    `overflow: hidden` on the html/body does not prevent scrolling.
+         * 2. Fixes a bug in desktop Safari where `overflowY` does not prevent
+         *    scroll if an `overflow-x` style is also applied to the body.
+         */
+        if (html) {
+            html.style.position = "relative" /* [1] */
+            html.style.overflow = "hidden" /* [2] */
+        }
 
-		body.style.position = "fixed" /* [1] */
-		body.style.overflow = "hidden" /* [2] */
-		body.style.width = "100%"
-		body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`
+        body.style.position = "fixed" /* [1] */
+        body.style.overflow = "hidden" /* [2] */
+        body.style.width = "100%"
+        body.style.paddingRight = `${bodyPaddingRight + scrollBarWidth}px`
 
-		scrollBlocked.current = true
-	}
+        scrollBlocked.current = true
+    }
 
-	const allowScroll = () => {
-		if (!body || !body.style || !scrollBlocked.current) return
+    const allowScroll = () => {
+        if (!body || !body.style || !scrollBlocked.current) return
 
-		if (html) {
-			html.style.position = ""
-			html.style.overflow = ""
-		}
+        if (html) {
+            html.style.position = ""
+            html.style.overflow = ""
+        }
 
-		body.style.position = ""
-		body.style.overflow = ""
-		body.style.width = ""
-		body.style.paddingRight = ""
+        body.style.position = ""
+        body.style.overflow = ""
+        body.style.width = ""
+        body.style.paddingRight = ""
 
-		scrollBlocked.current = false
-	}
+        scrollBlocked.current = false
+    }
 
-	useEffect(() => {
-		return () => {
-			if (scrollBlocked.current) {
-				allowScroll()
-			}
-		}
-	}, [])
+    useEffect(() => {
+        return () => {
+            if (scrollBlocked.current) {
+                allowScroll()
+            }
+        }
+    }, [])
 
-	return [blockScroll, allowScroll]
+    return [blockScroll, allowScroll]
 }
