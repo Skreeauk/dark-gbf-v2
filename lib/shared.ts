@@ -1,4 +1,4 @@
-export const appName = "My App"
+export const appName = "Dark GBF"
 export const docsRoute = "/docs"
 export const docsImageRoute = "/og/docs"
 
