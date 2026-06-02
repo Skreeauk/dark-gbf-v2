@@ -2,5 +2,13 @@
     "title": "Magna",
     "description": "The description of root folder (optional)",
     "root": true,
-    "pages": ["index", "requirements", "changelog", "---Pre HL---", "...pre-hl"]
+    "pages": [
+        "index",
+        "requirements",
+        "changelog",
+        "---Pre HL---",
+        "...pre-hl",
+        "---HL---",
+        "...hl"
+    ]
 }
