@@ -1,47 +1,42 @@
-# dark-gbf-v2
+<div align="center">
+  <image src="https://res.cloudinary.com/do5ymg44v/image/upload/v1724958241/logo.webp" />
+</div>
+<h3 align="center">
+  Docs for GBF Dark element
+</h3>
+<div align="center">
+  <image src="https://res.cloudinary.com/do5ymg44v/image/upload/v1724958412/homepage.png" />
+</div>
 
-This is a Next.js application generated with
-[Create Fumadocs](https://github.com/fuma-nama/fumadocs).
+## Features
 
-It is a Next.js app with [Static Export](https://nextjs.org/docs/app/guides/static-exports) configured.
+- Magna & Primal Guide in MDX
 
-Run development server:
+## Stack
 
-```bash
+- Framework: Next.js 16
+- UI: shadcn/ui, Aceternity UI, Magic UI & more
+- CSS: Tailwind CSS
+- Docs: Fumadocs
+- Hosting: Cloudflare Pages
+
+## Getting Started
+
+#### Local Development
+
+```
+git clone https://github.com/Skreeauk/dark-gbf-v2.git
+cd dark-gbf-v2
+npm i
 npm run dev
-# or
-pnpm dev
-# or
-yarn dev
 ```
 
-Open http://localhost:3000 with your browser to see the result.
+#### Build
 
-## Explore
+```
+npm run build
+```
 
-In the project, you can see:
+## Contact
 
-- `lib/source.ts`: Code for content source adapter, [`loader()`](https://fumadocs.dev/docs/headless/source-api) provides the interface to access your content.
-- `lib/layout.shared.tsx`: Shared options for layouts, optional but preferred to keep.
-
-| Route                     | Description                                            |
-| ------------------------- | ------------------------------------------------------ |
-| `app/(home)`              | The route group for your landing page and other pages. |
-| `app/docs`                | The documentation layout and pages.                    |
-| `app/api/search/route.ts` | The Route Handler for search.                          |
-
-### Fumadocs MDX
-
-A `source.config.ts` config file has been included, you can customise different options like frontmatter schema.
-
-Read the [Introduction](https://fumadocs.dev/docs/mdx) for further details.
-
-## Learn More
-
-To learn more about Next.js and Fumadocs, take a look at the following
-resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js
-  features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-- [Fumadocs](https://fumadocs.dev) - learn about Fumadocs
+Contact me at discord `@skreeauk` with your suggestions/edits
