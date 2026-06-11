@@ -1,5 +1,15 @@
 {
     "title": "Pre HL",
     "description": "The description of root folder (optional)",
-    "pages": ["m2", "ennead", "malice", "faa", "m3", "6d", "odious", "fa"]
+    "pages": [
+        "m2",
+        "ennead",
+        "malice",
+        "faa",
+        "m3",
+        "6d",
+        "ubhl",
+        "odious",
+        "fa"
+    ]
 }
