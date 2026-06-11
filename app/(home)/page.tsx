@@ -40,7 +40,7 @@ export default function HomePage() {
                 <Link href={"/docs/primal"}>
                     <div className="">
                         <CanvasCard
-                            title="Hades / ハデス"
+                            title="Primal / 神石"
                             desc="I've been rich and I've been poor. Rich is better"
                             icon={
                                 <Image
