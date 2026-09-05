@@ -5,6 +5,7 @@ keywords: [Ennead]
 ---
 
 import { Link, Bookmark } from "lucide-react"
+import Image from "next/image"
 
 ## Overview
 
@@ -16,11 +17,171 @@ You can also farm Belial after this to get access to Chain of Falsehood which en
 If you did not pick Dark’s Dark Opus from the side story, it is also viable to farm [Dark Rapture N](/docs/magna/pre-hl/faa) first to get the weapon.
 
 Osiris is mainly farmed for the anima to raise character awakening but the weapon can be used as a placeholder.
-You can aim for **Abydos**. You can use 1-2 as placeholders on normal attack setups.
+You can aim for **Abydos**, use 1-2 as placeholders on normal attack setups.
 
 ## Setup
 
-You can always use the usual setup so far however you need to reach **~480k honor**.
+<Tabs groupId="RaidSetup" items={["Blue Chest", "Solo"]}>
+    <Tab value="Blue Chest">
+      <Tabs groupId="PartySetup" items={["M1", "M2", "M3"]}>
+        <Tab value="M1">
+          <Setup slug="pre-hl/ennead/m1"></Setup>
+        </Tab>
+        <Tab value="M2">
+          <Setup slug="pre-hl/ennead/m2"></Setup>
+        </Tab>
+        <Tab value="M3">
+          <Setup slug="pre-hl/ennead/m3"></Setup>
+        </Tab>
+      </Tabs>
+
+      This time you want to reach **~480k honor**.
+
+      <div className="mx-auto text-center">
+          **Turn 1: MC 1st Skill + Limit Burst**
+
+          **Turn 2: Huanglong**
+
+          _Add buttons if lacking_
+      </div>
+      Relic Buster, Lyria, Lelouch and Seox (Event) can be obtained from the
+      side stories.
+      <div className="flex flex-col items-center">
+          <div className="flex *:m-0 *:aspect-19/10">
+              <Image
+                  src={"/class/relic_buster.jpg"}
+                  alt="Relic Buster"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+              <Image
+                  src={"/side-story/home_sweet_moon.png"}
+                  alt="Home Sweet Moon"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
+              <Image
+                  src={"/character/3040643000_01_06.jpg"}
+                  alt="Lyria Event"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+              <Image
+                  src={"/side-story/ps_the_astrals.png"}
+                  alt="PS The Astrals"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
+              <Image
+                  src={"/character/3040219000_01.jpg"}
+                  alt="Lelouch"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+              <Image
+                  src={"/side-story/code_geass.png"}
+                  alt="Code Geass"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
+            <Image
+                src={"/character/3040262000_01.jpg"}
+                alt="Seox (Event)"
+                width={190}
+                height={100}
+                className=""
+            />
+            <Image
+                src={"/side-story/seeds_of_redemption.png"}
+                alt="Seeds of Redemption"
+                width={190}
+                height={100}
+                className=""
+            />
+          </div>
+      </div>
+      <CalloutV2 title="Characters" type="tip">
+        If you got Dark SSR Characters from gacha, then just use those instead of the free units. Those are usually better than the free characters
+      </CalloutV2>
+      <CalloutV2 title="Lyria (SSR)" type="">
+          Lyria SSR can be obtained from the 12th Anniversary event **PS, the
+          Astrals…**, however it is not available in the side story yet if you
+          miss the event. If the side story is not available, you can still
+          get Lyria SR from **What Makes the Sky Blue** side story.
+          <div className="flex flex-col *:m-0 *:aspect-19/10 md:flex-row">
+            <Image
+                src={"/character/3030182000_01_06.jpg"}
+                alt="Lyria (SR)"
+                width={190}
+                height={100}
+                className=""
+            />
+            <Image
+                src={"/side-story/wmtsb.png"}
+                alt="What Makes the Sky Blue"
+                width={190}
+                height={100}
+                className=""
+            />
+          </div>
+      </CalloutV2>
+    </Tab>
+    <Tab value="Solo">
+      <Tabs groupId="PartySetup" items={["M2", "M3"]}>
+        <Tab value="M2">
+          <Setup slug="pre-hl/ennead/solo/m2"></Setup>
+        </Tab>
+        <Tab value="M3">
+          <Setup slug="pre-hl/ennead/solo/m3"></Setup>
+        </Tab>
+      </Tabs>
+
+      <CalloutV2 title="Grid" type="tip">
+          The grid is pretty flexible, as long as you got enough HP and can do the omens then you're good
+      </CalloutV2>
+
+      Horus omens are CA focused so Kengo with characters that helps to loop full chains will be good for solo-ing
+
+      Here are some notable units:
+
+      <div className="[&_td]:align-middle w-full [&_img]:w-[190px] [&_img]:h-[100px] [&_img]:rounded-none [&_img]:m-auto">
+
+          |                         Character                         |                            Reason                             |
+          | :-------------------------------------------------------: | :-----------------------------------------------------------: |
+          |    ![asd](/character/3040219000_01.jpg) <br /> Fediel     |                 Double CA + Spammable Shield                  |
+          |    ![asd](/character/3040219000_01.jpg) <br />  Lich      |       Generates a lot of bar for self and decent damage       |
+          |   ![asd](/character/3040219000_01.jpg) <br />  Vikala     |         Provides a 50% Bar Gain buff to help you loop         |
+          |   ![asd](/character/3040219000_01.jpg) <br />   Seox      |                        Pure Raw Damage                        |
+          |   ![asd](/character/3040219000_01.jpg) <br />  Indala     |                   Debuffs and bar generator                   |
+          |![asd](/character/3040219000_01.jpg) <br /> Wulf and Renie | Able to self attack for more damage and generate bar for self |
+          | ![asd](/character/3040219000_01.jpg) <br />    Tanya      |        Increases self bar on CA and does decent damage        |
+
+      </div>
+
+
+      <CalloutV2 title="Characters" type="">
+          There are a lot of units that help in a CA setup,
+          the table above only mentioned Permanent and Grand units.
+          Seasonal units were not mentioned for newbies
+      </CalloutV2>
+    </Tab>
+
+</Tabs>
 
 ## Resources
 
@@ -35,6 +196,12 @@ You can always use the usual setup so far however you need to reach **~480k hono
         href="https://gbfguide.com/horus/"
         title="GBF Guide Horus"
         description="More explanations & setups"
+        icon={<Link />}
+    />
+    <Card
+        href="https://www.youtube.com/results?search_query=%E3%82%B0%E3%83%A9%E3%83%96%E3%83%AB+%E3%83%9B%E3%83%AB%E3%82%B9hl+%E9%97%87+%E3%83%9E%E3%82%B0%E3%83%8A"
+        title="Youtube"
+        description="Youtube search result for Horus"
         icon={<Link />}
     />
 </Cards>

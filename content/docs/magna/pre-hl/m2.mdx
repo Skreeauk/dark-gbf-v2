@@ -10,115 +10,128 @@ import Image from "next/image"
 ## Overview
 
 You have the choice of farming Light or Dark first.
-I highly recommend farming Dark first as Light is pretty strong early on and will usually have an easier time to farm Avatar.
+I highly recommend farming Avatar first as Light is pretty strong early on and will usually have an easier time to farm Avatar.
 
 ## Setup
 
 <Tabs groupId="RaidSetup" items={["Blue Chest", "Solo"]}>
     <Tab value="Blue Chest">
-      <Setup slug="pre-hl/m2"></Setup>
-    
-        I recommend setting up a party like this. Once
-        you have farmed Avatar enough, you can slot Abyss Spines over the Claws.
-        Select Huanglong from the support summon. You are aiming for **~440,000
-        honors**.
-        <div className="mx-auto text-center">
-            **Turn 1: MC 1st Skill + Limit Burst** **Turn 2: Huanglong** _Add
-            buttons if lacking_
-        </div>
-        Relic Buster, Lyria, Lelouch and Seox (Event) can be obtained from the
-        side stories.
-        <div className="flex flex-col items-center">
-            <div className="flex *:m-0 *:aspect-19/10">
-                <Image
-                    src={"/class/relic_buster.jpg"}
-                    alt="Relic Buster"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-                <Image
-                    src={"/side-story/home_sweet_moon.png"}
-                    alt="Home Sweet Moon"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-            </div>
+      <Tabs groupId="PartySetup" items={["M1", "M2"]}>
+        <Tab value="M1">
+          <Setup slug="pre-hl/m2/m1"></Setup>
+        </Tab>
+        <Tab value="M2">
+          <Setup slug="pre-hl/m2/m2"></Setup>
+        </Tab>
+      </Tabs>
 
-            <div className="flex *:m-0 *:aspect-19/10">
-                <Image
-                    src={"/character/3040643000_01_06.jpg"}
-                    alt="Lyria Event"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-                <Image
-                    src={"/side-story/ps_the_astrals.png"}
-                    alt="PS The Astrals"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-            </div>
+      I recommend setting up a party like this. Once
+      you have farmed Avatar enough, you can slot Abyss Spines over the Claws.
+      Select Huanglong from the support summon. You are aiming for **~440,000
+      honors**.
+      <div className="mx-auto text-center">
+          **Turn 1: MC 1st Skill + Limit Burst**
 
-            <div className="flex *:m-0 *:aspect-19/10">
-                <Image
-                    src={"/character/3040219000_01.jpg"}
-                    alt="Lelouch"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-                <Image
-                    src={"/side-story/code_geass.png"}
-                    alt="Code Geass"
-                    width={190}
-                    height={100}
-                    className=""
-                />
-            </div>
+          **Turn 2: Huanglong**
 
-            <div className="flex *:m-0 *:aspect-19/10">
+          _Add buttons if lacking_
+      </div>
+      Relic Buster, Lyria, Lelouch and Seox (Event) can be obtained from the
+      side stories.
+      <div className="flex flex-col items-center">
+          <div className="flex *:m-0 *:aspect-19/10">
               <Image
-                  src={"/character/3040262000_01.jpg"}
-                  alt="Seox (Event)"
+                  src={"/class/relic_buster.jpg"}
+                  alt="Relic Buster"
                   width={190}
                   height={100}
                   className=""
               />
               <Image
-                  src={"/side-story/seeds_of_redemption.png"}
-                  alt="Seeds of Redemption"
+                  src={"/side-story/home_sweet_moon.png"}
+                  alt="Home Sweet Moon"
                   width={190}
                   height={100}
                   className=""
               />
-            </div>
-        </div>
-        <CalloutV2 title="Lyria (SSR)" type="">
-            Lyria SSR can be obtained from the 12th Anniversary event **PS, the
-            Astrals…**, however it is not available in the side story yet if you
-            miss the event. If the side story is not available, you can still
-            get Lyria SR from **What Makes the Sky Blue** side story.
-            <div className="flex flex-col *:m-0 *:aspect-19/10 md:flex-row">
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
               <Image
-                  src={"/character/3030182000_01_06.jpg"}
-                  alt="Lyria (SR)"
+                  src={"/character/3040643000_01_06.jpg"}
+                  alt="Lyria Event"
                   width={190}
                   height={100}
                   className=""
               />
               <Image
-                  src={"/side-story/wmtsb.png"}
-                  alt="What Makes the Sky Blue"
+                  src={"/side-story/ps_the_astrals.png"}
+                  alt="PS The Astrals"
                   width={190}
                   height={100}
                   className=""
               />
-            </div>
-        </CalloutV2>
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
+              <Image
+                  src={"/character/3040219000_01.jpg"}
+                  alt="Lelouch"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+              <Image
+                  src={"/side-story/code_geass.png"}
+                  alt="Code Geass"
+                  width={190}
+                  height={100}
+                  className=""
+              />
+          </div>
+
+          <div className="flex *:m-0 *:aspect-19/10">
+            <Image
+                src={"/character/3040262000_01.jpg"}
+                alt="Seox (Event)"
+                width={190}
+                height={100}
+                className=""
+            />
+            <Image
+                src={"/side-story/seeds_of_redemption.png"}
+                alt="Seeds of Redemption"
+                width={190}
+                height={100}
+                className=""
+            />
+          </div>
+      </div>
+      <CalloutV2 title="Characters" type="tip">
+        If you got Dark SSR Characters from gacha, then just use those instead of the free units. Those are usually better than the free characters
+      </CalloutV2>
+      <CalloutV2 title="Lyria (SSR)" type="">
+          Lyria SSR can be obtained from the 12th Anniversary event **PS, the
+          Astrals…**, however it is not available in the side story yet if you
+          miss the event. If the side story is not available, you can still
+          get Lyria SR from **What Makes the Sky Blue** side story.
+          <div className="flex flex-col *:m-0 *:aspect-19/10 md:flex-row">
+            <Image
+                src={"/character/3030182000_01_06.jpg"}
+                alt="Lyria (SR)"
+                width={190}
+                height={100}
+                className=""
+            />
+            <Image
+                src={"/side-story/wmtsb.png"}
+                alt="What Makes the Sky Blue"
+                width={190}
+                height={100}
+                className=""
+            />
+          </div>
+      </CalloutV2>
     </Tab>
     <Tab value="Solo">
       <Setup slug="pre-hl/m2/solo"></Setup>
@@ -147,6 +160,12 @@ I highly recommend farming Dark first as Light is pretty strong early on and wil
         href="https://gbfguide.com/metatron/"
         title="GBF Guide Metatron"
         description="More explanations & setups"
+        icon={<Link />}
+    />
+    <Card
+        href="https://www.youtube.com/results?search_query=%E3%82%B0%E3%83%A9%E3%83%96%E3%83%AB+%E3%83%A1%E3%82%BF%E3%83%88%E3%83%AD%E3%83%B3+%E9%97%87+%E3%83%9E%E3%82%B0%E3%83%8A"
+        title="Youtube"
+        description="Youtube search result for Metatron"
         icon={<Link />}
     />
 </Cards>
