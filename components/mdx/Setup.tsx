@@ -1,10 +1,12 @@
 import Image from "next/image"
+import { cn } from "@/lib/utils"
 
 interface SetupProps {
     slug: string
+    className?: string
 }
 
-export function Setup({ slug }: SetupProps) {
+export function Setup({ slug, className }: SetupProps) {
     return (
         <div>
             <Image
@@ -13,7 +15,7 @@ export function Setup({ slug }: SetupProps) {
                 width={976}
                 height={662}
                 loading="eager"
-                className="hidden md:block"
+                className={cn("hidden md:block", className)}
             />
             <Image
                 src={"/grids/" + slug + "/characters.png"}

@@ -4,7 +4,8 @@ description: Farming these takes forever
 keywords: [Malice, Menace]
 ---
 
-import { Bookmark } from "lucide-react"
+import { Link, Bookmark } from "lucide-react"
+import Image from "next/image"
 
 ## Overview
 
@@ -18,14 +19,34 @@ For Anima-Animus Core, you’re looking to farm the Agonize.
 This weapon improves the skill damage you do. It is recommended to have **2** of these.
 
 <CalloutV2 title="Weapon Drops" type="warning">
+    <Image
+        src={"/character/3030182000_01_06.jpg"}
+        alt="Lyria (SR)"
+        width={190}
+        height={100}
+        className="!mb-3"
+    />
     **Only use this weapon if its FLB (4★)**
 </CalloutV2>
 
 ## Setup
 
-Use the same setup to farm Metatron, there is no blue chest in this raid so you can just do your burst and move on.
+<Tabs groupId="PartySetup" items={["M2", "M3"]}>
+    <Tab value="M2">
+        <Setup slug="pre-hl/malice/m2" className="!m-0"></Setup>
+    </Tab>
+    <Tab value="M3">
+        <Setup slug="pre-hl/malice/m3" className="!m-0"></Setup>
+    </Tab>
+</Tabs>
 
-Depending on your team composition, you can update the grid to something like this.
+There is no blue chest in this raid so I will just show solo setup so you can just FA and clean up.
+There are a lot of solo setups you can search for if needed.
+
+You can also just press 1 button and then AFK but then the raid will stay alive longer.
+
+If you have farmed Agonize first, then you can replace the Celeste Claws with the 2 Agonize in the M2 grid.
+Celeste Saber Aters are better Agonize when you're doing Celeste x Celeste.
 
 ## Resources
 
@@ -35,5 +56,11 @@ Depending on your team composition, you can update the grid to something like th
         title="GBF Wiki Luminiera Malice setups"
         description="Additional setups"
         icon={<Bookmark />}
+    />
+    <Card
+        href="https://www.youtube.com/results?search_query=%E3%82%B0%E3%83%A9%E3%83%96%E3%83%AB+%E3%82%B7%E3%83%A5%E3%83%B4%E3%82%A1%E3%83%AA%E3%82%A8%E3%83%BB%E3%83%9E%E3%83%AA%E3%82%B9+%E9%97%87+%E3%83%9E%E3%82%B0%E3%83%8A"
+        title="Youtube"
+        description="Youtube search result for Luminiera Malice"
+        icon={<Link />}
     />
 </Cards>
